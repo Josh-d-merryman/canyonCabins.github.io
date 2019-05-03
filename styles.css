@@ -1,0 +1,158 @@
+/* font styles
+font-family: 'Fira Sans', sans-serif; Headings
+font-family: 'Crete Round', serif; Headings
+font-family: 'Merriweather', serif; Body text
+
+Color Palette
+#183661 dark blue (background color)
+#1c4b82 navy blue (background color - highlights - underlines)
+#dd6b4d orange (button background colors underlines)
+#dae1e7 gray (backgrounds - text color on dark blue - )
+*/
+body {
+  background-image: linear-gradient(to right, #1c4b82, #1667b2);
+  /* background-color: #1c4b82 ; */
+  font-family: 'Merriweather', serif;
+  color: white;
+  margin: 0;
+}
+
+hr {
+  border-top: solid 1px white;
+  width: 85%;
+  opacity: .5;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+/*---------------- Begin Header Styling */
+header {
+  width: 100vw;
+  margin: 0;
+}
+
+.nav-title {
+  /* background-color: #dae1e7;
+  color: #dd6b4d; */
+  background-color: white;
+  color: #183661;
+  text-align: center;
+  padding: 2em .5em;
+  font-variant: small-caps;
+  border-top: #dd6b4d solid 5px;
+}
+
+nav {
+  position: relative;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+}
+nav li {
+  position: relative;
+}
+nav a::before {
+  content:'';
+  display: block;
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  top:0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+
+
+.navbar ul li {
+  display: inline-block;
+  padding: 0 3em;
+  margin: 0 auto;
+}
+
+
+
+.navbar-link {
+  text-decoration: none;
+  color: #dae1e7;
+  display: inline-block;
+  font-size: 1em;
+  transition: ease-in-out 0.5s;
+}
+
+.navbar-link:hover {
+  color: #dd6b4d;
+  font-size: 1.1em;
+  border-bottom: solid 2px #dd6b4d;
+}
+
+/* --------------Begin Main Styling ------------*/
+/* ----- Top Section Styling ------*/
+/*hero*/
+.hero{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("images/kangchenjunga.jpg");
+  /* background-image: linear-gradient(to right, #dae1e7, white); */
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+/*establishing grid area*/
+.top-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  border: solid 5px #dd6b4d;
+}
+.img1 {
+  grid-area: img1;
+}
+.img2{
+  grid-area:img2;
+}
+.img3{
+  grid-area:img3;
+}
+.btn {
+  border: dodgerblue 1px solid;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  transition: ease-in-out 0.5s;
+
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-row-gap: 1em;
+  grid-template-areas:
+    "img1 img2 img3"
+    "cbn cbn cbn"
+    "cta cta cta";
+  padding: 2em 0;
+}
+.wrapper > div {
+  margin: 0 auto;
+}

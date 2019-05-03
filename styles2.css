@@ -1,0 +1,279 @@
+/* font styles
+font-family: 'Fira Sans', sans-serif; Headings
+font-family: 'Crete Round', serif; Headings
+font-family: 'Merriweather', serif; Body text
+
+Color Palette
+
+*/
+
+
+:root {
+  --background: #ffb677;
+  --secondary: #ff8364;
+  --green: #616f39;
+  --light: #ffd98e;
+}
+
+*::before,*::after {
+  box-sizing: border-box;
+}
+/* General Page styling */
+body{
+  margin: 0;
+  background: var(--green);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/*Specific Class styling, usually for positioning */
+.container {
+    width: 80%;
+    max-width: 2400px;
+    margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-family: 'Crete Round', serif;
+  font-variant: small-caps;
+  letter-spacing: 1.3px;
+  margin: 0 10px 1rem;
+}
+.sub-title {
+  border-radius: 28px;
+  font-size: 1.5rem;
+  width: 70%;
+  padding: 10px;
+  opacity: 0.5;
+
+}
+
+.btn {
+  border-radius: 28px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 4px 8px;
+  margin: 0 auto;
+  transition: all ease-in-out 250ms
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.24);
+}
+
+.btn-icon {
+  margin: 0 5px;
+}
+.box-shadow {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.24);
+}
+
+header {
+  background: white;
+  text-align: center;
+  display: block;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  border-bottom: solid 5px var(--secondary);
+  margin: 0;
+}
+header::after {
+  clear: both;
+}
+.logo {
+  color: var(--green);
+  font-variant: small-caps;
+  font-size: 1.5rem;
+}
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav-toggle-label:hover {
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: var(--background);
+  height: 3px;
+  width: 2em;
+  border-radius: 3px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 10px;
+}
+.nav-toggle-label span::after {
+  top: 10px;
+}
+
+.header-nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: white;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+
+
+}
+.header-nav-ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.header-nav-li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+ .header-nav-a {
+  color: var(--green);
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.header-nav-a:hover {
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
+}
+/*looks for nav that is a sibling of nav toggle (~)*/
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+  border-bottom: solid 5px var(--green);
+
+}
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/*------------------top-home styling begins --------------*/
+.top-home {
+  margin-top: calc(100px + 3rem);
+  height: 40vh;
+}
+.top-home-p {
+}
+
+.top-left {
+  grid-area: left;
+  color: #fff;
+}
+
+
+.top-right {
+  grid-area: right;
+}
+
+.top-image {
+  width: 100%;
+  max-width: 650px;
+  border-radius: 10px 20px;
+  margin: 0 auto;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.24);
+
+
+}
+.top-home-grid {
+  grid-template-columns: repeat(2,1fr);
+  grid-auto-rows: minmax(200px, auto);
+  grid-template-areas: "left right";
+}
+
+.top-btn {
+  background: var(--secondary);
+  margin-top: 0.5em;
+  margin-right: 1em;
+
+}
+.top-btn:hover {
+  background: white;
+  color: var(--secondary);
+}
+
+/* ---- end of top-home styling section ----*/
+/* ------ start of middle-home section -----*/
+
+
+@media screen and (min-width:1024px ) {
+  .nav-toggle-label {
+    display: none
+  }
+  header::after {
+    clear: both;
+  }
+  .logo {
+    float: left;
+    font-size: 1.5em;
+
+  }
+  .header-nav {
+    all: unset;
+    float: right;
+    padding: 1em;
+  }
+
+  .header-nav-ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .header-nav-li {
+    margin: 1rem;
+  }
+
+  .header-nav-a {
+    opacity: 1;
+    font-size: 1.2rem;
+  }
+}
+
+@Media screen and (max-width:1024px) {
+  .top-home-grid {
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    grid-template-areas:
+    "right"
+    "left";
+  }
+  .sub-title {
+    margin: 0 auto;
+  }
+}
