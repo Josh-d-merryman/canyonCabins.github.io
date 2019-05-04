@@ -24,6 +24,10 @@ body{
   background: var(--green);
   font-family: "Merriweather", serif;
   font-weight: 400;
+  width: 100vw;
+}
+section {
+  padding: calc(3rem + 30px) 0;
 }
 a{
   text-decoration: none;
@@ -47,6 +51,7 @@ a{
   font-variant: small-caps;
   letter-spacing: 1.3px;
   margin: 0 10px 1rem;
+  padding-top: 2rem;
 }
 .sub-title {
   border-radius: 28px;
@@ -188,9 +193,7 @@ header::after {
 /*------------------top-home styling begins --------------*/
 .top-home {
   margin-top: calc(100px + 3rem);
-  height: 40vh;
-}
-.top-home-p {
+  /* height: 40vh; */
 }
 
 .top-left {
@@ -231,6 +234,128 @@ header::after {
 
 /* ---- end of top-home styling section ----*/
 /* ------ start of middle-home section -----*/
+.middle-home {
+  background-color: white;
+  width: 100%;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.middle-home:hover .middle-subtitle {
+  opacity: .8;
+}
+
+.middle-card {
+  color: white;
+  background: var(--green);
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem .5rem;
+  position: relative;
+  border-radius: 10px;
+  transform: skew(2deg, 2deg);
+  transition: all ease-in-out 250ms;
+}
+
+.card-content{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.middle-card:hover {
+  transform: skew(0);
+}
+
+.card-title {
+  font-size: 2rem;
+  padding: .5rem;
+}
+
+.card-img {
+  width: 80%;
+  border-radius: 10px;
+  border: 3px #eeeeee solid;
+  transition: all ease-in-out 250ms;
+}
+
+.middle-card:hover .card-img {
+  width: 85%;
+  box-shadow: 0 16px 20px 0 rgba(0,0,0, 0.5)
+}
+.card-btn {
+  position: relative;
+  margin: 0;
+  padding: 10px 20px;
+  border: 1px solid #eeeeee;
+  color: #eeeeee;
+  transition: all ease-in-out 0.5s;
+  transform: translateY(-40px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.middle-card:hover .card-btn{
+  transform: translate(0);
+  opacity: 1;
+  visibility: visible;
+}
+.card-btn:hover {
+  color: var(--green);
+  background: #eeeeee;
+  border-color: var(--green);
+}
+
+.middle-intro, .middle-btm {
+  text-align: center;
+}
+
+.middle-intro {
+  grid-area: intro;
+}
+
+.middle-subtitle {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  transition: all ease-in-out 250ms;
+}
+
+.middle-btm {
+  grid-area: btm;
+  font-size: 1.5rem;
+}
+
+.middle-card1 {
+  grid-area: card1;
+
+}
+
+.middle-card2 {
+  grid-area: card2;
+  transform: skew(0);
+}
+
+.middle-card3 {
+  grid-area: card3;
+  transform: skew(-2deg, -2deg);
+}
+
+
+
+
+.middle-home-grid {
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 2rem;
+  grid-auto-rows: minmax(100px, auto); /* possibly add this to .grid class, appears multiple times*/
+  grid-template-areas:
+    "intro intro intro"
+    "card1 card2 card3"
+    "btm btm btm"
+}
+
+
 
 
 @media screen and (min-width:1024px ) {
@@ -276,4 +401,24 @@ header::after {
   .sub-title {
     margin: 0 auto;
   }
+  .middle-home-grid {
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 2rem;
+    grid-auto-rows: minmax(100px, auto); /* possibly add this to .grid class, appears multiple times*/
+    grid-template-areas:
+      "intro"
+      "card1"
+      "card2"
+      "card3"
+      "btm"
+  }
+  .middle-card {
+    transform: none;
+  }
+  .card-btn {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
 }
