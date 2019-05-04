@@ -21,7 +21,7 @@ Color Palette
 /* General Page styling */
 body{
   margin: 0;
-  background: var(--green);
+  /* background: var(--green); */
   font-family: "Merriweather", serif;
   font-weight: 400;
   width: 100vw;
@@ -192,13 +192,18 @@ header::after {
 
 /*------------------top-home styling begins --------------*/
 .top-home {
-  margin-top: calc(100px + 3rem);
+  padding-top: calc(100px + 3rem);
+  top: 0;
+  background: var(--green);
   /* height: 40vh; */
 }
 
 .top-left {
   grid-area: left;
   color: #fff;
+}
+.top-home-p {
+  margin: 1rem 0;
 }
 
 
@@ -223,9 +228,8 @@ header::after {
 
 .top-btn {
   background: var(--secondary);
-  margin-top: 0.5em;
+  margin-top: 1em;
   margin-right: 1em;
-
 }
 .top-btn:hover {
   background: white;
@@ -354,6 +358,43 @@ header::after {
     "card1 card2 card3"
     "btm btm btm"
 }
+/*---------------------- end of middle-home styling --------------*/
+/* start of footer styling */
+footer {
+  background: var(--secondary);
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2em 0;
+}
+.footer-logo {
+  width: 10%;
+  max-width: 200px;
+}
+.footer-ul {
+  display: flex;
+  width: 50%;
+  padding: 1em 0;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.footer-li {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-top {
+  opacity: .5;
+  transition: all ease-in-out
+}
+.footer-top:hover {
+  opacity: 1;
+}
+.footer-bottom {
+  width: 25%;
+}
+
 
 
 
