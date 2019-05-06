@@ -1,50 +1,92 @@
+
 /* font styles
 font-family: 'Fira Sans', sans-serif; Headings
-font-family: 'Poppins', sans-serif;
+font-family: 'Crete Round', serif; Headings
 font-family: 'Merriweather', serif; Body text
 
 Color Palette
-#183661 dark blue (background color)
-#1c4b82 navy blue (background color - highlights - underlines)
-#dd6b4d orange (button background colors underlines)
-#dae1e7 gray (backgrounds - text color on dark blue - )
-#6fa8dc
+
 */
+
+
 :root {
   --background: #ffb677;
   --secondary: #ff8364;
-  --orange: #616f39;
-  --lightblue: #ffd98e;
+  --green: #616f39;
+  --light: #ffd98e;
 }
-
 
 *::before,*::after {
   box-sizing: border-box;
 }
-
-body {
+/* General Page styling */
+html {
+  scroll-behavior: smooth;
+}
+body{
   margin: 0;
-  background: var(--orange);
+  /* background: var(--green); */
   font-family: "Merriweather", serif;
   font-weight: 400;
+  width: 100vw;
 }
 section {
-  padding: 2.5em 0;
+  padding: calc(3rem + 30px) 0;
 }
-.content {
-  margin-top: calc(100px + 2rem);
-  padding: 0;
+a{
+  text-decoration: none;
+  color: inherit;
 }
-.container{
-  width: 80%;
-  max-width: 2400px;
-  margin: 0 auto;
+
+/*Specific Class styling, usually for positioning */
+.container {
+    width: 80%;
+    max-width: 2400px;
+    margin: 0 auto;
 }
+
 .grid {
   display: grid;
 }
 
-/* navigation styles start */
+.title {
+  font-size: 3.5rem;
+  font-family: 'Crete Round', serif;
+  font-variant: small-caps;
+  letter-spacing: 1.3px;
+  margin: 0 10px 1rem;
+  padding-top: 2rem;
+}
+.sub-title {
+  border-radius: 28px;
+  font-size: 1.5rem;
+  width: 70%;
+  padding: 10px;
+  opacity: 0.5;
+  margin: 0 auto;
+
+}
+
+.btn {
+  border-radius: 28px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 4px 8px;
+  margin: 0 auto;
+  transition: all ease-in-out 250ms
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.24);
+}
+
+.btn-icon {
+  margin: 0 5px;
+}
+.box-shadow {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.24);
+}
 
 header {
   background: white;
@@ -61,7 +103,7 @@ header::after {
   clear: both;
 }
 .logo {
-  color: var(--orange);
+  color: var(--green);
   font-variant: small-caps;
   font-size: 1.5rem;
 }
@@ -106,7 +148,7 @@ header::after {
   top: 10px;
 }
 
-nav {
+.header-nav {
   position: absolute;
   text-align: left;
   top: 100%;
@@ -119,18 +161,18 @@ nav {
 
 
 }
-nav ul {
+.header-nav-ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-nav li {
+.header-nav-li {
   margin-bottom: 1em;
   margin-left: 1em;
 }
 
-nav a {
-  color: var(--orange);
+ .header-nav-a {
+  color: var(--green);
   text-decoration: none;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -138,275 +180,370 @@ nav a {
   transition: opacity 100ms ease-in-out;
 }
 
-nav a:hover {
-  color: var(--orange);
-  border-bottom: 2px solid var(--orange);
+.header-nav-a:hover {
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
 }
 /*looks for nav that is a sibling of nav toggle (~)*/
 .nav-toggle:checked ~ nav {
   transform: scale(1,1);
-  border-bottom: solid 5px var(--orange);
+  border-bottom: solid 5px var(--green);
 
 }
 .nav-toggle:checked ~ nav a {
   opacity: 1;
   transition: opacity 250ms ease-in-out 250ms;
 }
-/* --------------------end of header styling */
-/* ------------------begin of section 1 - home page ------*/
-h1 {
-  font-size: 3.5rem;
-}
-h2{
-  font-size: 2.5rem;
-}
-h3{
-  font-size: 1.5rem;
-}
-p{
-  font-size: 1.25rem;
-}
+
+/*------------------top-home styling begins --------------*/
 .top-home {
-  height: 40vh;
-  background: var(--orange);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: calc(100px + 3rem);
+  top: 0;
+  background: var(--green);
+  /* height: 40vh; */
 }
 
 .top-left {
   grid-area: left;
-  text-align: center;
+  color: #fff;
 }
-.top-left h1 {
-  font-family: 'Poppins', sans-serif;
-  font-variant: small-caps;
-  font-size: 3.5rem;
-  margin-bottom: 24px;
-  margin-top: 0;
+.top-home-p {
+  margin: 1rem 0;
 }
 
-.top-left p{
-  width: 70%;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin-bottom: 1rem;
-  opacity: .8;
-}
-.btn {
-  background-color: var(--secondary);
-  border: solid white 1px;
-  border-radius: 28px;
-  color: white;
-  display: inline-block;
-  font-size: 1.5rem;
-  padding: 4px 8px;
-  margin: 4px 2px;
-  cursor: pointer;
-  transition: all ease-in-out 250ms;
-}
-.btn:hover {
-  color: var(--orange);
-  background: white;
 
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24);
-
-}
-.btn > i {
-  margin: 0 5px;
-}
-
-.top-right{
+.top-right {
   grid-area: right;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.top-right img {
-  width:100%;
+.top-image {
+  width: 100%;
   max-width: 650px;
-  border-radius: 10px;
+  border-radius: 10px 20px;
   margin: 0 auto;
-}
+  box-shadow: 0 12px 16px 0 rgba(0,0,0, 0.24);
 
 
-.top-home-grid > div {
-  margin: 0 auto;
-  text-align: left;
-  color: white;
 }
 .top-home-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(200px, auto);
-    grid-template-areas:
-    "left right";
-  }
-/*------------ end of section 1/ top section styling ----------------*/
-/* ------------ start of section 2/middle section home styling ------*/
+  grid-template-columns: repeat(2,1fr);
+  grid-auto-rows: minmax(200px, auto);
+  grid-template-areas: "left right";
+}
+
+.top-btn {
+  background: var(--secondary);
+  margin-top: 1em;
+  margin-right: 1em;
+}
+.top-btn:hover {
+  background: white;
+  color: var(--secondary);
+}
+
+/* ---- end of top-home styling section ----*/
+/* --------- start of accordion styling ---- */
+#accordion {
+  background-color: rgba(97,111,57,.5);
+  text-align: center;
+  color: white;
+  padding: 0;
+}
+#accordion .title {
+  margin-bottom: 0;
+}
+.accordion-column1, .accordion-column2, .accordion-column3 {
+margin: 0 auto;
+}
+.accordion-column1 {
+  grid-area: column1;
+}
+.accordion-column2 {
+  grid-area: column2;
+}
+.accordion-column3 {
+  grid-area: column3;
+}
+
+.accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  /* grid-column-gap: 15px; */
+/*   grid-auto-rows: minmax(150px, auto); */
+  grid-template-areas:
+    "column1 column2 column3"
+}
+.accordion, .tab-container, .tab, .content, .tab-header, .tab-content {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.accordion {
+  width: 290px;
+  padding: 1px 5px 5px 5px;
+  background: #616f39;
+  border-radius: 10px;
+  margin-top: .5rem;
+}
+
+/* .accordion:hover {
+  background: #eeeeee;
+  color: var(--green);
+} */
+
+#close .tab {
+  background: #eeeeee;
+  color: var(--green);
+}
+
+.accordion .tab {
+  display: block;
+  height: 35px;
+  margin-top: 4px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 0px rgba(0,0,0, .2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tab-container::before {
+  display: block;
+  content: '';
+  margin-top: -250px;
+  height: 250px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.tab-header {
+  font: 2rem; 'Crete Round', serif;
+}
+.tab--btn-page {
+  transition: all ease-in-out 250ms;
+}
+
+.tab-btn:hover .tab--btn-page {
+  transform: rotate(90deg);
+}
+
+.accordion .tab:hover, .accordion div:target .accordion {
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, .15);
+  background: white;
+  color: var(--green);
+  width: 100%;
+  padding: 0;
+
+}
+
+.content {
+  color: var(--green);
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tab-content {
+  font-size: 1.3rem;
+  padding: .5rem;
+}
+
+
+.accordion div .content {
+  display: none;
+  margin: 5px;
+  transition: all ease-in-out 150ms;
+}
+
+.accordion div:target .content {
+  display: block;
+}
+
+
+.accordion &gt; div {
+  height: 40px;
+  overflow: hidden;
+  transition: all ease-in-out .3s;
+
+}
+
+.accordion &gt; div:target {
+  height: 100px;
+}
+.tab-content{
+  margin: 10px 0;
+  font: 11px/16px Arial, sans-serif;
+}
+
+.content ul li {
+  list-style: none;
+  margin: 5px 10px 5px 0;
+}
+/*-------- end of accordion styling ------- */
+/* ------ start of middle-home section -----*/
 .middle-home {
-  margin: 100px auto 0;
-  width: 100vw;
+  background-color: white;
+  width: 100%;
+  color: var(--green);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #eeeeee;
-  color: var(--orange);
-  position: relative;
-  padding: 2em 0 0;
-  z-index: -2;
-}
-.middle-home-grid {
-  grid-gap: 2em;
-}
-.middle-intro {
-  grid-area: intro;
-  /* color: var(--orange); */
-  text-align: center;
-  padding: 2em 0;
 
 }
-.middle-intro h2{
-  /* color: var(--orange); */
-  border-bottom: solid var(--orange) 2px;
-  display: inline-block;
+.middle-home:hover .middle-subtitle {
+  opacity: .8;
 }
-.middle-intro p {
+
+.middle-card {
+  color: white;
+  background: var(--green);
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem .5rem;
+  position: relative;
+  border-radius: 10px;
+  transform: skew(2deg, 2deg);
+  transition: all ease-in-out 250ms;
+}
+
+.card-content{
   width: 80%;
   margin: 0 auto;
-}
-.middle-card {
-  background-color: #eeeeee;
-  /* color: var(--orange); */
-  margin: 0 auto;
-  margin-top: 2em;
   text-align: center;
-  padding: 1em .5em;
-  position: relative;
+}
 
+.middle-card:hover {
+  transform: skew(0);
 }
-.middle-card::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background: var(--orange);
-  transform: skew(2deg, 2deg);
-   z-index: -3;
+
+.card-title {
+  font-size: 2rem;
+  padding: .5rem;
 }
-.card-content {
-  position: relative;
-  padding: 1.5em 2em;
+
+.card-img {
+  width: 80%;
+  border-radius: 10px;
+  border: 3px #eeeeee solid;
+  transition: all ease-in-out 250ms;
 }
-.card-content .btn {
+
+.middle-card:hover .card-img {
+  width: 85%;
+  box-shadow: 0 16px 20px 0 rgba(0,0,0, 0.5)
+}
+.card-btn {
   position: relative;
   margin: 0;
   padding: 10px 20px;
-  text-decoration: none;
-  border: 1px solid var(--orange);
-  display: inline-block;
-  color: #fff;
-  transition: 0.5s;
+  border: 1px solid #eeeeee;
+  color: #eeeeee;
+  transition: all ease-in-out 0.5s;
   transform: translateY(-40px);
   opacity: 0;
   visibility: hidden;
 }
-.card-content:hover .btn {
+
+.middle-card:hover .card-btn{
   transform: translate(0);
   opacity: 1;
   visibility: visible;
 }
-.card-content .btn:hover {
-  color: var(--orange);
-  background: #fff;
-}
-.card-img {
-  width: 80%;
-  border-radius: 15px;
+.card-btn:hover {
+  color: var(--green);
+  background: #eeeeee;
+  border-color: var(--green);
 }
 
-.middle-card1{
+.middle-intro, .middle-btm {
+  text-align: center;
+}
+
+.middle-intro {
+  grid-area: intro;
+}
+
+.middle-subtitle {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  transition: all ease-in-out 250ms;
+}
+
+.middle-btm {
+  grid-area: btm;
+  font-size: 1.5rem;
+}
+
+.middle-card1 {
   grid-area: card1;
+
 }
-.middle-card2{
+
+.middle-card2 {
   grid-area: card2;
+  transform: skew(0);
 }
+
 .middle-card3 {
   grid-area: card3;
-}
-.middle-btn{
-  grid-area: btn;
-  margin: 0 auto;
-  text-align: center;
-
-}
-.middle-btn a {
-  border-radius: 50%;
-  border: solid 2px var(--orange);
-  background: var(--orange);
-  font-size: 1em;
-  padding: 1em;
-  color: #eeeeee;
-  margin: 2em .5em;
+  transform: skew(-2deg, -2deg);
 }
 
-  .middle-btn a:hover {
-    border-radius: 50%;
-    border-color: var(--orange);
-    background: #eeeeee;
-    color: var(--orange);
-  }
-.middle-home-grid{
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(200px, auto);
+
+
+
+.middle-home-grid {
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 2rem;
+  grid-auto-rows: minmax(100px, auto); /* possibly add this to .grid class, appears multiple times*/
   grid-template-areas:
-  "intro intro intro"
-  "card1 card2 card3"
-  "btn btn btn"
+    "intro intro intro"
+    "card1 card2 card3"
+    "btm btm btm"
 }
-/*----------------- End of middle-home styline --------*/
-/* ------ footer styling begin ------------------ */
+/*---------------------- end of middle-home styling --------------*/
+/* start of footer styling */
 footer {
-  width: 100vw;
   background: var(--secondary);
   color: white;
-  padding: 2em;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  padding: 2em 0;
 }
-/* .footer-content ul {
-  width: 30%;
-  margin: 0 auto;
+.footer-logo {
+  width: 10%;
+  max-width: 200px;
+}
+.footer-ul {
   display: flex;
+  width: 50%;
+  padding: 1em 0;
   justify-content: space-around;
-  text-decoration: none;
-  padding: 2em;
+  margin: 0 auto;
 }
-.footer-content li {
+.footer-li {
   display: inline-block;
   text-decoration: none;
-  color: white;
-
-}
-.footer-list {
-  text-decoration: none;
-  color: white;
 }
 
-.footer-list:visited {
+.footer-top {
   opacity: .5;
+  transition: all ease-in-out
+}
+.footer-top:hover {
+  opacity: 1;
+}
+.footer-bottom {
+  width: 25%;
 }
 
-.footer-content a:hover {
-  border-bottom: white 3px solid;
-} */
 
 
-/*------------------- Responsiveness Media Queries ----------------------*/
 
-@media screen and (min-width:1024px ) {
+
+@media screen and (min-width:1300px ) {
   .nav-toggle-label {
     display: none
   }
@@ -418,62 +555,63 @@ footer {
     font-size: 1.5em;
 
   }
-  nav {
+  .header-nav {
     all: unset;
     float: right;
     padding: 1em;
   }
 
-  nav ul {
+  .header-nav-ul {
     display: flex;
     justify-content: flex-end;
-    border: 1px solid var(--secondary);
   }
-  nav li {
+  .header-nav-li {
     margin: 1rem;
   }
 
-  nav a {
+  .header-nav-a {
     opacity: 1;
     font-size: 1.2rem;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@Media screen and (max-width:1300px) {
   .top-home-grid {
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
     grid-template-areas:
     "right"
     "left";
   }
-  .top-home-grid > div {
-    text-align: center;
+  .sub-title {
+    margin: 0 auto;
   }
-  .top-left p {
-    margin: 1rem auto;
-  }
-
-  .middle-home-grid{
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-rows: minmax(200px, auto);
+  .middle-home-grid {
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 2rem;
+    grid-auto-rows: minmax(100px, auto); /* possibly add this to .grid class, appears multiple times*/
     grid-template-areas:
-    "intro"
-    "card1 "
-    "card2"
-    "card3"
-    "btn"
-
+      "intro"
+      "card1"
+      "card2"
+      "card3"
+      "btm"
   }
-
-
-  .card-content .btn {
-    transform: translateY(0);
+  .middle-card {
+    transform: none;
+  }
+  .card-btn {
+    transform: none;
     opacity: 1;
     visibility: visible;
-    bottom: 0;
   }
-  .card-content:hover .btn {
-    all: unset;
+  .accordion-column2 {
+    display: none;
+  }
+  .accordion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "column1 column3"
   }
 
 
