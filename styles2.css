@@ -7,7 +7,6 @@ Color Palette
 
 */
 
-
 :root {
   --background: #ffb677;
   --secondary: #ff8364;
@@ -19,6 +18,9 @@ Color Palette
   box-sizing: border-box;
 }
 /* General Page styling */
+html {
+  scroll-behavior: smooth;
+}
 body{
   margin: 0;
   /* background: var(--green); */
@@ -59,6 +61,7 @@ a{
   width: 70%;
   padding: 10px;
   opacity: 0.5;
+  margin: 0 auto;
 
 }
 
@@ -237,6 +240,145 @@ header::after {
 }
 
 /* ---- end of top-home styling section ----*/
+/* --------- start of accordion styling ---- */
+#accordion {
+  background-color: rgba(97,111,57,.5);
+  text-align: center;
+  color: white;
+  padding: 0;
+}
+#accordion .title {
+  margin-bottom: 0;
+}
+.accordion-column1, .accordion-column2, .accordion-column3 {
+margin: 0 auto;
+}
+.accordion-column1 {
+  grid-area: column1;
+}
+.accordion-column2 {
+  grid-area: column2;
+}
+.accordion-column3 {
+  grid-area: column3;
+}
+
+.accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  /* grid-column-gap: 15px; */
+/*   grid-auto-rows: minmax(150px, auto); */
+  grid-template-areas:
+    "column1 column2 column3"
+}
+.accordion, .tab-container, .tab, .content, .tab-header, .tab-content {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.accordion {
+  width: 290px;
+  padding: 1px 5px 5px 5px;
+  background: #616f39;
+  border-radius: 10px;
+  margin-top: .5rem;
+}
+
+/* .accordion:hover {
+  background: #eeeeee;
+  color: var(--green);
+} */
+
+#close .tab {
+  background: #eeeeee;
+  color: var(--green);
+}
+
+.accordion .tab {
+  display: block;
+  height: 35px;
+  margin-top: 4px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 0px rgba(0,0,0, .2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tab-container::before {
+  display: block;
+  content: '';
+  margin-top: -250px;
+  height: 250px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.tab-header {
+  font: 2rem; 'Crete Round', serif;
+}
+.tab--btn-page {
+  transition: all ease-in-out 250ms;
+}
+
+.tab-btn:hover .tab--btn-page {
+  transform: rotate(90deg);
+}
+
+.accordion .tab:hover, .accordion div:target .accordion {
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, .15);
+  background: white;
+  color: var(--green);
+  width: 100%;
+  padding: 0;
+
+}
+
+.content {
+  color: var(--green);
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tab-content {
+  font-size: 1.3rem;
+  padding: .5rem;
+}
+
+
+.accordion div .content {
+  display: none;
+  margin: 5px;
+  transition: all ease-in-out 150ms;
+}
+
+.accordion div:target .content {
+  display: block;
+}
+
+
+.accordion &gt; div {
+  height: 40px;
+  overflow: hidden;
+  transition: all ease-in-out .3s;
+
+}
+
+.accordion &gt; div:target {
+  height: 100px;
+}
+.tab-content{
+  margin: 10px 0;
+  font: 11px/16px Arial, sans-serif;
+}
+
+.content ul li {
+  list-style: none;
+  margin: 5px 10px 5px 0;
+}
+/*-------- end of accordion styling ------- */
 /* ------ start of middle-home section -----*/
 .middle-home {
   background-color: white;
@@ -399,7 +541,7 @@ footer {
 
 
 
-@media screen and (min-width:1024px ) {
+@media screen and (min-width:1300px ) {
   .nav-toggle-label {
     display: none
   }
@@ -431,7 +573,7 @@ footer {
   }
 }
 
-@Media screen and (max-width:1024px) {
+@Media screen and (max-width:1300px) {
   .top-home-grid {
     grid-template-columns: repeat(1, 1fr);
     text-align: center;
@@ -461,5 +603,14 @@ footer {
     opacity: 1;
     visibility: visible;
   }
+  .accordion-column2 {
+    display: none;
+  }
+  .accordion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "column1 column3"
+  }
+
 
 }
